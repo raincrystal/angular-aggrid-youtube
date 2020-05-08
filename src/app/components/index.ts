@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -34,15 +34,21 @@ import { HeaderComponent } from './header/header.component';
 import { ThemeModule } from '../theme/theme.module';
 import { CoreModule } from '../@core/core.module';
 import { AgGridComponent } from './ag-grid/ag-grid.component';
+import { ImageCellComponent } from './ag-grid/image-cell.component';
+import { VideoLinkCellComponent } from './ag-grid/video-link-cell.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    AgGridComponent
+    AgGridComponent,
+    ImageCellComponent,
+    VideoLinkCellComponent,
   ],
   exports: [
     HeaderComponent,
     AgGridComponent,
+    ImageCellComponent,
+    VideoLinkCellComponent,
   ],
   imports: [
     ThemeModule.forRoot(),
@@ -69,7 +75,10 @@ import { AgGridComponent } from './ag-grid/ag-grid.component';
     FormsModule,
     CoreModule,
     NbListModule,
-    AgGridModule.withComponents([]),
+    AgGridModule.withComponents([
+      ImageCellComponent,
+      VideoLinkCellComponent,
+    ]),
   ],
   providers: [
     NbSidebarService,

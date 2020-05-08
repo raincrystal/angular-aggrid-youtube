@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 
 export class YoutubeService {
-  private apiKey = 'AIzaSyDOfT_BO81aEZScosfTYMruJobmpjqNeEk';
+  private apiKey = 'AIzaSyCpA5QZouzhIqyA4H4XHHJ4GsAolXEt-XM';
 
   constructor(public http: HttpClient) { }
   getSearchList(): Observable<any> {
