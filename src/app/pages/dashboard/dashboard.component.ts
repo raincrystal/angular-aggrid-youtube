@@ -1,4 +1,6 @@
-import {Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { YoutubeService } from '../../services/youtube/youtube.service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +9,20 @@ import {Component, OnInit, ChangeDetectorRef } from '@angular/core';
 })
 
 export class DashboardComponent implements OnInit {
-  constructor(private cd: ChangeDetectorRef) {
+  constructor(public youtubeService: YoutubeService) {
   }
 
+  public videos: any[];
+
   ngOnInit(): void {
+    this.videos = [];
+
+    this.youtubeService
+      .getSearchList()
+      .subscribe(list => {
+        for (const element of list.items) {
+          this.videos.push(element);
+        }
+      });
   }
 }

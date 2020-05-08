@@ -21,6 +21,24 @@ export class AgGridComponent implements OnInit {
     { make: 'Porsche', model: 'Boxter', price: 72000 }
   ];
 
+  public gridOptions = {
+    columnDefs: this.columnDefs,
+    rowData: this.rowData,
+    defaultColDef: {
+      sortable: true,
+      filter: true,
+      resizable: true,
+    },
+    onGridReady: (params)  => {
+      params.api.sizeColumnsToFit();
+      window.addEventListener('resize', () => {
+        setTimeout(() => {
+          params.api.sizeColumnsToFit();
+        });
+      });
+    },
+  };
+
   ngOnInit(): void {
   }
 }
