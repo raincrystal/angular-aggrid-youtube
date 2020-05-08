@@ -7,7 +7,6 @@ import {
   Output,
   OnInit,
 } from '@angular/core';
-import { GridApi } from 'ag-grid-community';
 
 @Component({
   selector: 'app-ag-grid',
@@ -21,8 +20,6 @@ export class AgGridComponent implements OnInit {
   @Input() rowSelection: string;
 
   @Output() changeSelectMode: EventEmitter<boolean> = new EventEmitter();
-
-  private gridApi: GridApi;
 
   constructor(
     public cd: ChangeDetectorRef
@@ -41,7 +38,6 @@ export class AgGridComponent implements OnInit {
       this.selectedRows = params.api.getSelectedRows().length;
       this.cd.detectChanges();
     },
-    allowContextMenuWithControlKey: true
   };
 
   ngOnInit(): void {
