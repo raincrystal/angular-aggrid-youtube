@@ -1,0 +1,15 @@
+.chart-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.target-quality {
+  display: flex;
+  flex-direction: column;
+}
+
+nb-card {
+  height: 95% !important;
+}
